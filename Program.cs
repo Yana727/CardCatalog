@@ -33,11 +33,8 @@ namespace CardCatalog
             Console.WriteLine ($"{item.BookName} is written by {item.Author}"); 
         }
 
-        var authorSearch = library.searchByAuthor("Billy");
-        foreach (var item in authorSearch)
-        {
-            Console.Write ($"{item.Author} wrote {item.BookName}"); 
-        }
+        var authorItem = library.searchByAuthor("Billy");
+        Console.Write ($"{authorItem.Author} wrote {authorItem.BookName}"); 
 
 
         var isla = new Member
@@ -48,14 +45,14 @@ namespace CardCatalog
             Email = "awesome@dog.com"
         }; 
 
-        var overdueSearch = library.searchForOverdue();
-        foreach (var item in overdueSearch)
+        var overdueSearchList = library.searchForOverdue();
+        foreach (var item in overdueSearchList)
         {
            Console.WriteLine($"{item.BookName} is overdue");
         }
         library.CheckOut ("Treasure", "Isla");
         library.CheckOut ("Norwitch", "Isla"); 
-        Library.CheckInBook ("Treasure","Isla"); 
+        library.CheckInBook ("Treasure","Isla"); 
         }
     }
 }
